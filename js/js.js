@@ -7,30 +7,9 @@ var App = {
     this.elements.createApp();
     this.events.title();
     this.events.searchBar();
-
+    this.events.addMyCards();
     this.elements.createCardsContainer();
-
     this.controllers.renderAllCards();
-
-    // var searchBar = document.getElementsByClassName("search-bar");
-    // console.log("SEARCHBAR", searchBar);
-    console.log(this.elements.searchBar);
-
-    // var nameForm = document.querySelector(".search-box");
-    // var filteredCards = [];
-    // console.log("FILTERCARDS", filteredCards);
-
-    // nameForm.addEventListener("input", (event) => {
-    //   event.preventDefault();
-    //   const term = event.target.value.toLowerCase();
-    //   let searchResult = App.store.state.cards.filter((filteredCard) => {
-    //     return filteredCard.name.toLowerCase().includes(term);
-    //   });
-    //   createFilteredCards(searchResult);
-    //   console.log("FILTERCARDS222", filteredCards);
-    // });
-
-    // this.controllers.renderAllCards();
 
     console.log("Fim do App");
   },
@@ -53,6 +32,13 @@ var App = {
 
       App.elements.title.onclick = function () {
         App.controllers.home();
+      };
+    },
+
+    addMyCards: function () {
+      App.elements.buyBtn.onclick = function (myCards, card) {
+        App.store.state.myCards = App.elements.card;
+        console.log(App.store.state.myCards);
       };
     },
   },
@@ -157,6 +143,7 @@ var App = {
       this.renderName(divContainer, card);
       this.createPrice(card);
       this.renderPrice(divContainer, card);
+      this.renderBuyBtn(divContainer);
     },
 
     renderName: function (x, card) {
@@ -190,13 +177,42 @@ var App = {
       priceCard.style.fontSize = "16px";
       divContainer.appendChild(priceCard);
     },
+
+    renderBuyBtn: function (divContainer, card) {
+      // <!-- Button trigger modal -->
+      var buyBtn = document.createElement("button");
+      buyBtn.type = "button";
+      buyBtn.className = "btn btn-outline-primary btn-sm";
+
+      buyBtn.innerHTML = "Buy";
+      buyBtn.setAttribute("data-bs-toggle", "modal");
+      buyBtn.setAttribute("data-bs-target", "#exampleModal");
+      buyBtn.style.marginLeft = "5px";
+      buyBtn.style.marginTop = "4px";
+
+      // var customFieldValue = $("data-bs-toggle").attr("modal");
+      // buyBtn.customFieldValue();
+      // buyBtn.$("data-bs-target")= "#exampleModal";
+      divContainer.appendChild(buyBtn);
+
+      // <button
+      //   type="button"
+      //   class="btn btn-primary"
+      //   data-bs-toggle="modal"
+      //   data-bs-target="#exampleModal"
+      // >
+      //   Buy
+      // </button>
+    },
   },
 
   elements: {
     app: document.getElementById("app"),
     searchBar: document.getElementById("searchBar"),
     title: document.getElementById("title"),
+    buyBtn: document.getElementById("buyBtn"),
     cardsContainer: null,
+    el: null,
     cards: {},
 
     createApp: function () {

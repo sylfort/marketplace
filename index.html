@@ -139,16 +139,6 @@
     </main>
     <!-- /.container -->
 
-    <!-- Button trigger modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
-      Launch demo modal
-    </button>
-
     <!-- Modal -->
     <div
       class="modal fade"
@@ -160,7 +150,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">
+              Confirm you purchase
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -168,7 +160,6 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
           <div class="modal-footer">
             <button
               type="button"
@@ -177,7 +168,14 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button
+              id="buyBtn"
+              data-bs-dismiss="modal"
+              type="button"
+              class="btn btn-primary"
+            >
+              Buy
+            </button>
           </div>
         </div>
       </div>
