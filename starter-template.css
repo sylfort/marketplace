@@ -1,0 +1,64 @@
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  padding-top: 5rem;
+  background-color: #f0f0f0;
+  font-family: "Open Sans", sans-serif;
+}
+
+btn btn-outline-success {
+  padding-right: ;
+}
+
+#app {
+  font-family: var(--bs-font-sans-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+#bodyContainer {
+  /* background-color: #000e14; */
+}
+
+.navbar {
+  position: fixed;
+}
+
+.navbar-container {
+  background-color: #252024;
+}
+
+.main {
+  color: #c49250 !important;
+}
+
+.title {
+  /* color: #c49250 !important; */
+  /* overflow: hidden; */
+  background: linear-gradient(
+    to right,
+    rgb(230, 159, 65),
+    rgb(230, 159, 65) 50%,
+    #c49250 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none; // text decorations are clipped in WebKit browsers
+}
+
+.title:hover {
+  background-position: 0 100%;
+}
+
+.buy {
+  margin-left: 10px;
+  min-width: 5vw;
+}
