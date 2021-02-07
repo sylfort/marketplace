@@ -57,22 +57,45 @@ var App = {
     // TEM ALGO DE ERRADO AQUI
 
     addMyCards: function () {
-      App.elements.buyBtn.onclick = function (myCards, card) {
-        // antes de adicionar verificar se ja existe
-        App.store.state.myCards.push(App.store.state.cart);
+      App.elements.buyBtn.onclick = function () {
+        var myCards = App.store.state.myCards;
+        var card = App.store.state.cart;
 
-        // if (App.store.state.myCards.name.includes(card.name)) {
-        //   App.store.state.myCards.pop(card);
-        // }
-        console.log(App.store.state.cart);
-        console.log(App.store.state.myCards);
+        console.log("mycards", myCards);
+
+        var res = myCards.filter(function (c) {
+          return c.cardCode === card.cardCode;
+        });
+        console.log("res", res);
+
+        if (!res.length) {
+          // antes de adicionar verificar se ja existe
+          myCards.push(card);
+          App.store.state.cart = null;
+        }
+        console.log(card);
       };
     },
 
     sellMyCards: function () {
-      App.elements.sellBtn.onclick = function (card) {
-        App.store.state.myCards.pop(card);
+      App.elements.sellBtn.onclick = function () {
+        var card = App.store.state.cart;
+
+        // var newMyCards = []
+        // for (let i = 0; i < App.store.state.myCards.length; i++) {
+        //   const c = App.store.state.myCards[i];
+        //   if (c.cardCode !== card.cardCode) {
+        //     newMyCards.push(c)
+        //   }
+        // }
+        // App.store.state.myCards = newMyCards;
+
+        App.store.state.myCards = App.store.state.myCards.filter(function (c) {
+          return c.cardCode !== card.cardCode;
+        });
+
         console.log(App.store.state.myCards);
+        App.store.state.cart = null;
         App.controllers.my();
       };
     },
@@ -157,6 +180,9 @@ var App = {
 
       for (var i = 0; i < cards.length; i++) {
         var card = cards[i];
+
+        // fazer aqui a verificacao dos que ja tem, e renderizar so os que tem
+
         this.renderCard(card);
       }
     },
