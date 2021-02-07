@@ -61,25 +61,25 @@ var App = {
         // antes de adicionar verificar se ja existe
         App.store.state.myCards.push(App.store.state.cart);
 
-        if (App.store.state.myCards.name.includes(card.name)) {
-          App.store.state.myCards.pop(card);
-        }
+        // if (App.store.state.myCards.name.includes(card.name)) {
+        //   App.store.state.myCards.pop(card);
+        // }
         console.log(App.store.state.cart);
         console.log(App.store.state.myCards);
       };
     },
 
     sellMyCards: function () {
-      App.elements.sellBtn.onclick = function (card, myCards) {
+      App.elements.sellBtn.onclick = function (card) {
         App.store.state.myCards.pop(card);
         console.log(App.store.state.myCards);
-        App.controllers.my(myCards);
+        App.controllers.my();
       };
     },
 
     listMyCards: function () {
-      App.elements.my.onclick = function (myCards) {
-        App.controllers.my(myCards);
+      App.elements.my.onclick = function () {
+        App.controllers.my();
       };
     },
   },
