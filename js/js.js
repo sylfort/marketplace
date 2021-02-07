@@ -41,25 +41,45 @@ var App = {
       };
     },
 
+    // containsCard: function (myCards, card) {
+    //   var i;
+    //   for (i = 0; i < myCards.length; i++) {
+    //     if (myCards[i] === card) {
+    //       return true;
+    //     }
+    //   }
+
+    //   return false;
+    // },
+
+    // TEM ALGO DE ERRADO AQUI
+    // TEM ALGO DE ERRADO AQUI
+    // TEM ALGO DE ERRADO AQUI
+
     addMyCards: function () {
-      App.elements.buyBtn.onclick = function (e) {
+      App.elements.buyBtn.onclick = function (myCards, card) {
         // antes de adicionar verificar se ja existe
         App.store.state.myCards.push(App.store.state.cart);
+
+        if (App.store.state.myCards.name.includes(card.name)) {
+          App.store.state.myCards.pop(card);
+        }
         console.log(App.store.state.cart);
+        console.log(App.store.state.myCards);
       };
     },
 
     sellMyCards: function () {
-      App.elements.sellBtn.onclick = function (e, card) {
+      App.elements.sellBtn.onclick = function (card, myCards) {
         App.store.state.myCards.pop(card);
         console.log(App.store.state.myCards);
-        App.controllers.my();
+        App.controllers.my(myCards);
       };
     },
 
     listMyCards: function () {
-      App.elements.my.onclick = function () {
-        App.controllers.my();
+      App.elements.my.onclick = function (myCards) {
+        App.controllers.my(myCards);
       };
     },
   },
@@ -71,12 +91,16 @@ var App = {
       this.renderAllCards(myCards);
     },
 
+    // TEM ALGO DE ERRADO AQUI
+    // TEM ALGO DE ERRADO AQUI
+    // TEM ALGO DE ERRADO AQUI
     home: function (cards) {
       App.store.state.search = "";
       cards = App.store.state.cards;
       App.store.state.page = "home";
-      this.clearTheClutter();
+      this.clearTheClutter(cards);
       this.renderAllCards(cards);
+      console.log(cards);
 
       // acessa o searchBar e limpa o value = ""
     },
