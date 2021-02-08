@@ -41,6 +41,15 @@ var App = {
       };
     },
 
+    confirmPurchase: function () {
+      App.elements.buyBtn.onclick = function () {
+        var myModal = new bootstrap.Modal(
+          document.getElementById("modalConfirm")
+        );
+        myModal.show();
+      };
+    },
+
     // containsCard: function (myCards, card) {
     //   var i;
     //   for (i = 0; i < myCards.length; i++) {
@@ -60,8 +69,12 @@ var App = {
       App.elements.buyBtn.onclick = function () {
         var myCards = App.store.state.myCards;
         var card = App.store.state.cart;
-
         console.log("mycards", myCards);
+
+        var myModal = new bootstrap.Modal(
+          document.getElementById("modalConfirm")
+        );
+        myModal.show();
 
         var res = myCards.filter(function (c) {
           return c.cardCode === card.cardCode;
