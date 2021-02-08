@@ -9,7 +9,7 @@ body {
 }
 
 btn btn-outline-success {
-  padding-right: ;
+  /* // color: $yellow-900; */
 }
 
 #app {
@@ -58,7 +58,11 @@ btn btn-outline-success {
   background-position: 0 100%;
 }
 
-.buy {
+#my {
   margin-left: 10px;
-  min-width: 5vw;
+  min-width: 6.5vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
 }

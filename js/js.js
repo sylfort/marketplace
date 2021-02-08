@@ -265,7 +265,7 @@ var App = {
       buyBtn.type = "button";
 
       if (App.store.state.page == "my") {
-        buyBtn.className = "btn btn-outline-danger btn-sm";
+        buyBtn.className = "btn btn-outline-dark btn-sm";
         buyBtn.setAttribute("data-bs-target", "#exampleModal2");
         buyBtn.innerHTML = "Sell";
       } else {
