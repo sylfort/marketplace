@@ -61,8 +61,8 @@ btn btn-outline-success {
 #my {
   margin-left: 10px;
   min-width: 6.5vw;
-  display: flex;
+  /* display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
